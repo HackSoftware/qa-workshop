@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn config.wsgi:application
+web: gunicorn qa_workshop.wsgi:application
