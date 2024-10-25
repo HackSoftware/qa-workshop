@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'qa_workshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
-    "default": env.db("Dstatic/ATABASE_URL", default="postgres:///qaworkshop"),
+    "default": env.db("DATABASE_URL", default="postgres:///qaworkshop"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
