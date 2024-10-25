@@ -27,12 +27,13 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default='django-insecure-=%m$x-w9&(2t+7l=f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=True)
 
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["*"])
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_overwrite.apps.AdminOverwriteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'qa_workshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///qaworkshop"),
+    "default": env.db("Dstatic/ATABASE_URL", default="postgres:///qaworkshop"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
