@@ -5,6 +5,7 @@ class Property(models.Model):
     owner = models.ForeignKey('auth.User', related_name='properties', on_delete=models.CASCADE)
     address = models.CharField(max_length=100)
     number_of_beds = models.PositiveSmallIntegerField()
+    cover = models.ImageField(upload_to='covers/', null=True, blank=True)
 
     def __str__(self):
         return self.address
