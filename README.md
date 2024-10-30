@@ -2,6 +2,8 @@
 
 This is just a simple Django admin made for automation test purposes. 
 
+The system is hosted here: https://automation-workshop.hacksoft.io/admin/
+
 ## How to start the project locally
 
 ```
