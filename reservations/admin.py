@@ -38,6 +38,16 @@ class ReservationAdmin(admin.ModelAdmin):
     filter_horizontal = ("guests",)
     list_filter = ("status",)
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "property":
+            kwargs["queryset"] = Property.objects.filter(owner=request.user)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "guests":
+            kwargs["queryset"] = Guest.objects.filter(owner=request.user)
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
+
     def get_queryset(self, request):
         return super().get_queryset(request).filter(owner=request.user)
 
